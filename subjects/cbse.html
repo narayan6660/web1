@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="shortcut icon" type="png" href="images/icon/favicon.png">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Comaptible" content="IE=edge">
+	<title></title>
+	<meta name="desciption" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../style.css">
+	<script type="text/javascript" src="../script.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+	
+	<style>
+		 .content {
+      display: none;
+    }
+
+    .content.active {
+      display: block;
+    }
+
+	.container {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    #dropdown {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 4px;
+      background-color: #f8f8f8;
+      color: #333;
+      margin-bottom: 1.5rem;
+      width: 200px;
+    }
+	</style>
+</head>
+<body>
+<!-- Navigation Bar -->
+	<header id="header">
+		<nav>
+			<ul>
+				<li><a href="/index.html">Home</a></li>
+				<li><a href="#portfolio_section">Portfolio</a></li>
+				<li><a href="#team_section">Team</a></li>
+				<li><a href="#services_section">Services</a></li>
+				<li><a href="#contactus_section">Contact</a></li>
+			</ul>
+
+		<!-- Google Translator -->
+			<div id="google_translate_element"></div>
+
+				<script type="text/javascript">
+					function googleTranslateElementInit() {
+  						new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+					}
+				</script>
+			<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+		<!-- Google Translator -->
+
+			<div class="srch"><input type="text" class="search" placeholder="Search here..."><img src="../images/icon/search.png" alt="search" onclick=slide()></div>
+			<a class="get-started" href="login.html">Get Started</a>
+			<img src="../images/icon/menu.png" class="menu" onclick="sideMenu(0)" alt="menu">
+		</nav>
+		<div class="head-container">
+			<div class="quote">
+				<h2>Default Page</h2>
+                <p></p>
+				
+			</div>
+			<div class="svg-image">
+				<img src="../images/extra/svg1.jpg" alt="svg">
+			</div>
+		</div>
+		<div class="side-menu" id="side-menu">
+			<div class="close" onclick="sideMenu(1)"><img src="../images/icon/close.png" alt=""></div>
+			<div class="user">
+				<img src="../images/creator/user.jpeg" alt="Username">
+				<p>username</p>
+			</div>
+			<ul>
+				<li><a href="#about_section">About</a></li>
+				<li><a href="#portfolio_section">Portfolio</a></li>
+				<li><a href="#team_section">Team</a></li>
+				<li><a href="#services_section">Services</a></li>
+				<li><a href="#contactus_section">Contact</a></li>
+				<li><a href="#feedBACK">Feedback</a></li>
+			</ul>
+		</div>
+	</header>
+	<div id="div-border-radius">
+		<h2 style="text-align: center">CBSE</h2>
+      <p>The CBSE curriculum provides a complete education for students from Grade 1 to 12, focusing on practical knowledge and overall growth. Our courses follow CBSE standards to help students learn well and succeed in their studies.</p>
+    </div>
+	<br>
+	<div class="container">
+		<select id="dropdown">
+			<option value="">Select a class</option>
+			<option value="class1">Class 1</option>
+			<option value="class2">Class 2</option>
+			<option value="class3">Class 3</option>
+			<option value="class4">Class 4</option>
+			<option value="class5">Class 5</option>
+			<option value="class6">Class 6</option>
+			<option value="class7">Class 7</option>
+			<option value="class8">Class 8</option>
+			<option value="class9">Class 9</option>
+			<option value="class10">Class 10</option>
+		  </select>
+	  
+		<!-- Some KeyWords related to topic -->
+		<div class="course2">
+			<div id="class1" class="content">
+				<h3  style="text-align: center">CLASS 1</h3>
+				<div class="cbox2">
+				<div class="det2"><a href="../cbse books/math_class_1_eng.pdf" target="_blank">MATHEMATICS</a></div>
+				<div class="det2"><a href="../cbse books/eemh1ps-converted.html" target="_blank">ENGLISH</a></div>
+				<div class="det2"><a href="../cbse books/1st hindi fl 2020-21.pdf" target="_blank">HINDI</a></div>
+				<div class="det2"><a href="../cbse books/Class-1-Art.pdf" target="_blank">PAINT</a></div>
+				</div>
+			</div>
+		
+			<div id="class2" class="content">
+				<h3 style="text-align: center">CLASS 2</h3>
+				<div class="cbox2">
+				<div class="det2"><a href="../cbse books/2 maths em 2020-21.pdf" target="_blank">MATHEMATICS</a></div>
+				<div class="det2"><a href="../cbse books/class 2 eng.pdf" target="_blank">ENGLISH</a></div>
+				<div class="det2"><a href="../cbse books/science-textbook-grade-2.pdf" target="_blank">SCIENCE</a></div>
+				<div class="det2"><a href="../cbse books/eelc_socialstudies_2.pdf" target="_blank">SOCIAL STUDIES</a></div>
+				<div class="det2"><a href="../cbse books/bhhn102.pdf" target="_blank">HINDI</a></div>
+				</div>
+
+			</div>
+		
+			<div id="class3" class="content">
+				<h3 style="text-align: center">CLASS 3</h3>
+				<div class="cbox2">
+				<div class="det2"><a href="../cbse books/Class3-Maths-reduced.pdf" target="_blank">MATHEMATICS</a></div>
+				<div class="det2"><a href="../cbse books/E-Text Book Class 3 English.pdf" target="_blank">ENGLISH</a></div>
+				<div class="det2"><a href="../cbse books/Class 3 EVS E Text Book.pdf" target="_blank">EVS</a></div>
+				<div class="det2"><a href="../cbse books/3rd hindi fl 2020-21.pdf" target="_blank">HINDI</a></div>
+				<div class="det2"><a href="../cbse books/3rd class GK.pdf" target="_blank">HINDI</a></div>				
+			</div>
+			</div>
+		
+			<div id="class4" class="content">
+				<h3 style="text-align: center">CLASS 4</h3>
+				<div class="cbox2">
+				<div class="det2"><a href="../cbse books/4th class maths em.pdf" target="_blank">MATHEMATICS</a></div>
+				<div class="det2"><a href="../cbse books/4th class english.pdf" target="_blank">ENGLISH</a></div>
+				<div class="det2"><a href="../cbse books/4th science.pdf" target="_blank">SCIENCE</a></div>
+				<div class="det2"><a href="../cbse books/4th class GK.pdf" target="_blank">GENERAL KNOWLEDE</a></div>
+				<div class="det2"><a href="../cbse books/4th hindi fl 2020-21.pdf" target="_blank">HINDI</a></div>
+				</div>
+			</div>
+
+			<div id="class5" class="content">
+				<h3 style="text-align: center">CLASS 5</h3>
+				<div class="cbox2">
+				<div class="det2"><a href="../cbse books/eeap1ps_merged.pdf" target="_blank">MATHEMATICS</a></div>
+				<div class="det2"><a href="../cbse books/eeap1ps_merged.pdf" target="_blank">ENGLISH</a></div>
+				<div class="det2"><a href="../cbse books/5th class english.pdf" target="_blank">ENGLISH</a></div>
+				<div class="det2"><a href="../cbse books/gk 5.pdf" target="_blank">GENERAL KNOWLEDE</a></div>
+				<div class="det2"><a href="../cbse books/Class5 - Hindi-reduced.pdf" target="_blank">HINDI</a></div>
+				</div>
+			</div>
+
+			<div id="class6" class="content">
+				<h3 style="text-align: center">CLASS 6</h3>
+				<div class="cbox2">
+				<div class="det2"><a href="../cbse books/6th class maths em.pdf" target="_blank">MATHEMATICS</a></div>
+				<div class="det2"><a href="../cbse books/6th class english.pdf" target="_blank">ENGLISH</a></div>
+				<div class="det2"><a href="../cbse books/6 social em 2020-21.pdf" target="_blank">SOCIAL SCIENCE</a></div>
+				<div class="det2"><a href="../cbse books/History6.pdf" target="_blank">HISTORY</a></div>
+				<div class="det2"><a href="../cbse books/6th hindi sl 2020-21.pdf" target="_blank">HINDI</a></div>
+				</div>
+			</div>
+
+			<div id="class7" class="content">
+				<h3 style="text-align: center">CLASS 7</h3>
+				<div class="cbox2">
+				<div class="det2"><a href="../cbse books/7 maths em 2020-21.pdf" target="_blank">MATHEMATICS</a></div>
+				<div class="det2"><a href="../cbse books/7th class english.pdf" target="_blank">ENGLISH</a></div>
+				<div class="det2"><a href="../cbse books/7 social em 2020-21.pdf" target="_blank">SOCIAL SCIENCE</a></div>
+				<div class="det2"><a href="../cbse books/7 general science em 2020-21.pdf" target="_blank">GENERAL SCIENCE</a></div>
+				<div class="det2"><a href="../cbse books/7th hindi sl.pdf" target="_blank">HINDI</a></div>
+				</div>
+			</div>
+
+			<div id="class8" class="content">
+				<h3 style="text-align: center">CLASS 8</h3>
+				<div class="cbox2">
+				<div class="det2"><a href="../cbse books/8th MATHEMATICS.pdf" target="_blank">MATHEMATICS</a></div>
+				<div class="det2"><a href="../cbse books/8TH ENGLISH.pdf" target="_blank">ENGLISH</a></div>
+				<div class="det2"><a href="../cbse books/" target="_blank">GEOGRAPHY</a></div>
+				<div class="det2"><a href="../cbse books/8TH   SOCIAL SCIENCE.pdf" target="_blank">SOCIAL SCIENCE</a></div>
+				<div class="det2"><a href="../cbse books/8TH   HINDI.pdf" target="_blank">HINDI</a></div>
+				</div>
+			</div>
+
+			<div id="class9" class="content">
+				<h3 style="text-align: center">CLASS 9</h3>
+				<div class="cbox2">
+				<div class="det2"><a href="../cbse books/9TH MATHEMATICS.pdf" target="_blank">MATHEMATICS</a></div>
+				<div class="det2"><a href="../cbse books/9TH  ENGLISH.pdf" target="_blank">ENGLISH</a></div>
+				<div class="det2"><a href="../cbse books/9TH   SCIENCE.pdf" target="_blank">SCIENCE</a></div>
+				<div class="det2"><a href="../cbse books/9TH   SOCIAL SCIENCE.pdf" target="_blank">SOCIAL SCIENCE</a></div>
+				<div class="det2"><a href="../cbse books/9TH  HINDI.pdf" target="_blank">HINDI</a></div>
+				</div>
+			</div>
+
+			<div id="class10" class="content">
+				<h3 style="text-align: center">CLASS 10</h3>
+				<div class="cbox2">
+				<div class="det2"><a href="../cbse books/10TH  MATHEMATICS.pdf" target="_blank">MATHEMATICS</a></div>
+				<div class="det2"><a href="../cbse books/10TH  ENGLISH.pdf" target="_blank">ENGLISH</a></div>
+				<div class="det2"><a href="../cbse books/10TH  ECONOMIY.pdf" target="_blank">ECONOMY</a></div>
+				<div class="det2"><a href="../cbse books/10TH  DEMOCRACY.pdf" target="_blank">DEMOCRACY</a></div>
+				<div class="det2"><a href="../cbse books/10TH  HINDI.pdf" target="_blank">HINDI</a></div>
+				<div class="det2"><a href="../cbse books/10TH  SCIENCE.pdf" target="_blank">SCIENCE</a></div>
+			</div>
+			</div>
+		
+		
+		</div>
+	</div>
+	<script>
+		const dropdown = document.getElementById('dropdown');
+    const contentDivs = document.querySelectorAll('.content');
+
+    dropdown.addEventListener('change', () => {
+      const selectedValue = dropdown.value;
+
+      contentDivs.forEach((div) => {
+        div.classList.remove('active');
+      });
+
+      if (selectedValue) {
+        document.getElementById(selectedValue).classList.add('active');
+      }
+    });
+	</script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dropdown Content Toggle</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    #dropdown {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 4px;
+      background-color: #f8f8f8;
+      color: #333;
+      margin-bottom: 1.5rem;
+      width: 200px;
+    }
+
+    .content {
+      display: none;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .content.active {
+      display: block;
+    }
+
+    .content h2 {
+      color: #e91e63;
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <select id="dropdown">
+      <option value="">Select a class</option>
+      <option value="class1">Class 1</option>
+      <option value="class2">Class 2</option>
+      <option value="class3">Class 3</option>
+    </select>
+
+    <div id="class1" class="content">
+      <h2>Class 1 Content</h2>
+      <p>This is the content for Class 1.</p>
+    </div>
+
+    <div id="class2" class="content">
+      <h2>Class 2 Content</h2>
+      <p>This is the content for Class 2.</p>
+    </div>
+
+    <div id="class3" class="content">
+      <h2>Class 3 Content</h2>
+      <p>This is the content for Class 3.</p>
+    </div>
+  </div>
+
+  <script>
+    const dropdown = document.getElementById('dropdown');
+    const contentDivs = document.querySelectorAll('.content');
+
+    dropdown.addEventListener('change', () => {
+      const selectedValue = dropdown.value;
+
+      contentDivs.forEach((div) => {
+        div.classList.remove('active');
+      });
+
+      if (selectedValue) {
+        document.getElementById(selectedValue).classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>
