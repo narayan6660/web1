@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration and Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: block;
+            color: #555;
+        }
+        input[type="text"], input[type="email"], input[type="password"], select {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .link {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .link a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        .link a:hover {
+            text-decoration: underline;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        .tab.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .form-container {
+            display: none;
+        }
+        .form-container.active {
+            display: block;
+        }
+        .checkbox-group {
+            margin-bottom: 15px;
+        }
+        .checkbox-group label {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        .student-info {
+            display: none;
+        }
+        .event-instructions {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #333;
+        }
+        .registration-list {
+            margin-top: 20px;
+        }
+        .registration-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .registration-list li {
+            margin-bottom: 10px;
+        }
+        .event-button {
+            margin-top: 20px;
+            display: block;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        .event-button:hover {
+            background-color: #0056b3;
+        }
+        .seats-left {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Tabs for switching between forms -->
+        <div class="tabs">
+            <div class="tab active" onclick="showForm('registerForm')">Register</div>
+            <div class="tab" onclick="showForm('loginForm')">Login</div>
+        </div>
+
+        <!-- Registration Form -->
+        <div id="registerForm" class="form-container active">
+            <h2>Student Registration</h2>
+            <form id="registrationForm" onsubmit="handleRegister(event)">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required><br>
+
+                <label for="events">Select Events:</label>
+                <div class="checkbox-group">
+                    <label for="sports">
+                        <input type="checkbox" id="sports" name="events[]" value="Sports"> Sports
+                    </label>
+                    <label for="clubs">
+                        <input type="checkbox" id="clubs" name="events[]" value="Clubs"> Clubs
+                    </label>
+                    <label for="study">
+                        <input type="checkbox" id="study" name="events[]" value="Study"> Study
+                    </label>
+                    <label for="library">
+                        <input type="checkbox" id="library" name="events[]" value="Library"> Library
+                    </label>
+                </div>
+
+                <button type="submit">Register</button>
+            </form>
+            <div class="link">
+                <p>Already have an account? <a href="javascript:void(0)" onclick="showForm('loginForm')">Login</a></p>
+            </div>
+        </div>
+
+        <!-- Login Form -->
+        <div id="loginForm" class="form-container">
+            <h2>Student Login</h2>
+            <form id="loginFormAction" onsubmit="handleLogin(event)">
+                <label for="email">Email:</label>
+                <input type="email" id="loginEmail" name="email" required><br>
+
+                <label for="password">Password:</label>
+                <input type="password" id="loginPassword" name="password" required><br>
+
+                <button type="submit">Login</button>
+            </form>
+            <div class="link">
+                <p>Don't have an account? <a href="javascript:void(0)" onclick="showForm('registerForm')">Register</a></p>
+            </div>
+        </div>
+
+        <!-- Student Info Section -->
+        <div id="studentInfo" class="student-info">
+            <h2>Welcome, <span id="studentName"></span>!</h2>
+            <p>You are registered for the following events:</p>
+            <ul id="studentEvents"></ul>
+            <div id="eventInstructions" class="event-instructions"></div>
+            <div class="registration-list" id="registrationList"></div>
+            <a href="javascript:void(0)" onclick="goBackToMain()" class="event-button">Back to Main Page</a>
+        </div>
+    </div>
+
+    <script>
+        // Store events registration lists in sessionStorage
+        if (!sessionStorage.getItem('eventsList')) {
+            sessionStorage.setItem('eventsList', JSON.stringify({
+                'Sports': { participants: [], maxSeats: 12, timeSlots: ['9:00 AM', '10:00 AM', '11:00 AM'] },
+                'Clubs': { participants: [], maxSeats: 12, timeSlots: ['12:00 PM', '1:00 PM', '2:00 PM'] },
+                'Study': { participants: [], maxSeats: 12, timeSlots: ['3:00 PM', '4:00 PM', '5:00 PM'] },
+                'Library': { participants: [], maxSeats: 12, timeSlots: ['6:00 PM', '7:00 PM', '8:00 PM'] }
+            }));
+        }
+
+        function showForm(formId) {
+            // Hide both forms
+            document.getElementById('registerForm').classList.remove('active');
+            document.getElementById('loginForm').classList.remove('active');
+            
+            // Remove active class from tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show the selected form
+            document.getElementById(formId).classList.add('active');
+            
+            // Activate the corresponding tab
+            if (formId === 'registerForm') {
+                document.querySelectorAll('.tab')[0].classList.add('active');
+            } else {
+                document.querySelectorAll('.tab')[1].classList.add('active');
+            }
+        }
+
+        // Handle the registration form submission
+        function handleRegister(event) {
+            event.preventDefault(); // Prevent actual form submission
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const events = [];
+            document.querySelectorAll('input[name="events[]"]:checked').forEach(checkbox => {
+                events.push(checkbox.value);
+            });
+
+            // Store the student data in sessionStorage
+            sessionStorage.setItem('studentName', name);
+            sessionStorage.setItem('studentEmail', email);
+            sessionStorage.setItem('studentPassword', password);
+            sessionStorage.setItem('studentEvents', JSON.stringify(events));
+
+            // Add the student to the selected events' registration lists
+            const eventsList = JSON.parse(sessionStorage.getItem('eventsList'));
+            events.forEach(event => {
+                if (eventsList[event].participants.length < eventsList[event].maxSeats) {
+                    eventsList[event].participants.push({
+                        name: name,
+                        email: email,
+                        timeSlot: eventsList[event].timeSlots[eventsList[event].participants.length]  // Assign a time slot
+                    });
+                }
+            });
+
+            // Save updated event data back to sessionStorage
+            sessionStorage.setItem('eventsList', JSON.stringify(eventsList));
+
+            alert("Registration Successful!");
+
+            // Optionally, switch to the login form after registration
+            showForm('loginForm');
+        }
+
+        // Handle the login form submission
+        function handleLogin(event) {
+            event.preventDefault(); // Prevent actual form submission
+
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+
+            const storedEmail = sessionStorage.getItem('studentEmail');
+            const storedPassword = sessionStorage.getItem('studentPassword');
+
+            if (email === storedEmail && password === storedPassword) {
+                const name = sessionStorage.getItem('studentName');
+                const events = JSON.parse(sessionStorage.getItem('studentEvents'));
+
+                document.getElementById('studentName').textContent = name;
+                const eventList = document.getElementById('studentEvents');
+                eventList.innerHTML = '';
+                events.forEach(event => {
+                    const li = document.createElement('li');
+                    li.textContent = event;
+                    eventList.appendChild(li);
+                });
+
+                let instructions = '';
+                events.forEach(event => {
+                    if (event === 'Sports') {
+                        instructions += '<p><strong>Sports:</strong> Get ready for the upcoming sports events, including football, basketball, and more!</p>';
+                    } else if (event === 'Clubs') {
+                        instructions += '<p><strong>Clubs:</strong> Join our various student clubs for networking and activities!</p>';
+                    } else if (event === 'Study') {
+                        instructions += '<p><strong>Study:</strong> Attend study groups and workshops to enhance your academic skills.</p>';
+                    } else if (event === 'Library') {
+                        instructions += '<p><strong>Library:</strong> Use the library for research and study sessions.</p>';
+                    }
+                });
+
+                document.getElementById('eventInstructions').innerHTML = instructions;
+
+                showRegistrationList(events);
+
+                document.getElementById('studentInfo').style.display = 'block';
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('registerForm').style.display = 'none';
+            } else {
+                alert("Invalid email or password!");
+            }
+        }
+
+        // Show the registration list for each event and seats left
+        function showRegistrationList(events) {
+            const eventsList = JSON.parse(sessionStorage.getItem('eventsList'));
+            const registrationListDiv = document.getElementById('registrationList');
+            registrationListDiv.innerHTML = '';
+
+            events.forEach(event => {
+                const eventList = eventsList[event];
+                const eventTitle = document.createElement('h3');
+                eventTitle.textContent = event + ' Registration List:';
+                registrationListDiv.appendChild(eventTitle);
+
+                const ul = document.createElement('ul');
+                eventList.participants.forEach(participant => {
+                    const li = document.createElement('li');
+                    li.textContent = `${participant.name} (${participant.email}) - Time Slot: ${participant.timeSlot}`;
+                    ul.appendChild(li);
+                });
+
+                const seatsLeft = eventList.maxSeats - eventList.participants.length;
+                const seatsLeftText = document.createElement('p');
+                seatsLeftText.classList.add('seats-left');
+                seatsLeftText.textContent = `Seats left: ${seatsLeft}`;
+                registrationListDiv.appendChild(seatsLeftText);
+                registrationListDiv.appendChild(ul);
+            });
+        }
+
+        // Go back to the main page
+        function goBackToMain() {
+            location.reload();
+        }
+    </script>
+</body>
+</html>
